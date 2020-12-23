@@ -1,0 +1,9 @@
+/node_modules/
+/lib/
+/test/
+
+# top level source
+fc-menuitem.js
+fc-menuitem.js.map
+fc-menuitem.d.ts
+fc-menuitem.d.ts.map
