@@ -1,6 +1,6 @@
-# LitElement TypeScript starter 
+# fc-menuitem
 
-This project includes a sample component using LitElement with TypeScript.
+Web Component that displays a hirearchical menu
 
 ## Setup
 
