@@ -1,6 +1,6 @@
 {
   "name": "@flowingcode/fc-menuitem",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Web Component that displays a hierarchical menu",
   "keywords": [
     "web-components",
