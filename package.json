@@ -7,6 +7,14 @@
     "lit-element",
     "typescript"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlowingCode/fc-menuitem.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FlowingCode/fc-menuitem/issues"
+  },
+  "homepage": "https://github.com/FlowingCode/fc-menuitem#readme",
   "main": "fc-menuitem.js",
   "module": "fc-menuitem.js",
   "type": "module",
@@ -33,7 +41,7 @@
     "test:prune-snapshots": "karma start karma.conf.cjs --prune-snapshots",
     "checksize": "rollup -c ; cat fc-menuitem.bundled.js | gzip -9 | wc -c ; rm fc-menuitem.bundled.js"
   },
-  "author": "The Polymer Authors",
+  "author": "Flowing Code",
   "license": "Apache-2.0",
   "dependencies": {
     "lit-element": "^2.3.1",
