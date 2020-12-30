@@ -1,38 +1,121 @@
 {
-  "version": "experimental",
+  "version": "0.9.1",
   "tags": [
     {
       "name": "fc-menuitem",
-      "path": "./src/fc-menuitem.ts",
+      "path": "./src\\fc-menuitem.ts",
       "description": "An example element.",
       "attributes": [
         {
-          "name": "name",
-          "description": "The name to say \"Hello\" to.",
+          "name": "key",
           "type": "string",
-          "default": "\"World\""
+          "default": "\"\""
         },
         {
-          "name": "count",
-          "description": "The number of times the button has been clicked.",
-          "type": "number",
-          "default": "0"
+          "name": "label",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "hasIcon",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "isSubmenu",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "onMenuItemClicked",
+          "type": "string",
+          "default": "\"\""
         }
       ],
       "properties": [
         {
-          "name": "name",
-          "attribute": "name",
-          "description": "The name to say \"Hello\" to.",
+          "name": "key",
+          "attribute": "key",
           "type": "string",
-          "default": "\"World\""
+          "default": "\"\""
         },
         {
-          "name": "count",
-          "attribute": "count",
-          "description": "The number of times the button has been clicked.",
-          "type": "number",
-          "default": "0"
+          "name": "label",
+          "attribute": "label",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "href",
+          "attribute": "href",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "src",
+          "attribute": "src",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "hasIcon",
+          "attribute": "hasIcon",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "isSubmenu",
+          "attribute": "isSubmenu",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "onMenuItemClicked",
+          "attribute": "onMenuItemClicked",
+          "type": "string",
+          "default": "\"\""
+        },
+        {
+          "name": "theme",
+          "description": "Helper property with theme attribute value facilitating propagation\nin shadow DOM.\n\nEnables the component implementation to propagate the `theme`\nattribute value to the subcomponents in Shadow DOM by binding\nthe subcomponent’s \"theme\" attribute to the `theme` property of\nthe host.\n\n**NOTE:** Extending the mixin only provides the property for binding,\nand does not make the propagation alone.\n\nSee [Theme Attribute and Subcomponents](https://github.com/vaadin/vaadin-themable-mixin/wiki/5.-Theme-Attribute-and-Subcomponents).\npage for more information.",
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "name": "menuitem-clicked-event"
         }
       ],
       "slots": [
