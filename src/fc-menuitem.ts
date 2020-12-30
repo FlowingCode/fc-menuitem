@@ -107,6 +107,10 @@ export class FcMenuItemElement extends ThemableMixin(LitElement) {
 	@property({ type: Boolean, reflect: true })
 	isSubmenu = false;
 
+	@property({ type: String, reflect: true })
+	onMenuItemClicked = "";
+
+
 	__hasIconChanged(hasIcon: boolean) {
 		let item = this.shadowRoot?.querySelector("#item") as PaperIconItemElement;
 		let contentIcon = item.shadowRoot?.querySelector("#contentIcon") as HTMLElement;
@@ -136,7 +140,13 @@ export class FcMenuItemElement extends ThemableMixin(LitElement) {
 		// this.addEventListener('focus', listener);
 		// this.addEventListener('click', listener);
 		this.addEventListener('click', (event) => {
-			if (this.href && event.composedPath() && (event.composedPath()[0] as HTMLElement).id != "label") {
+		let myEvent = new CustomEvent('menuitem-clicked-event', { 
+			detail: { message: 'Menu item clicked.' },
+			bubbles: true, 
+			composed: true });
+		this.dispatchEvent(myEvent);
+		eval( this.onMenuItemClicked );
+		if (this.href && event.composedPath() && (event.composedPath()[0] as HTMLElement).id != "label") {
 				let anchor = this.shadowRoot?.querySelector("a#label") as HTMLElement;
 				anchor.click();
 			}

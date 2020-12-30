@@ -10,10 +10,10 @@
     </style>
   </head>
   <body>
-    <fc-menuitem label="Menu item 1">
-      <fc-menuitem label="Menu item 1-2" slot="menu-item" href="https://www.google.com"></fc-menuitem>
+    <fc-menuitem label="Menu item 1" >
+      <fc-menuitem label="Menu item 1-2" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-2')"></fc-menuitem>
     </fc-menuitem>
-    <fc-menuitem label="Menu item 2"></fc-menuitem>
+    <fc-menuitem label="Menu item 2" onMenuItemClicked="alert('clicked Menu item 2')" href="/"></fc-menuitem>
     <fc-menuitem label="Menu item 3"></fc-menuitem>
     <fc-menuitem label="Menu item 4"></fc-menuitem>
   </body>
