@@ -1,5 +1,4 @@
 import { customElement, html, LitElement, property } from 'lit-element';
-import "@polymer/paper-item/paper-icon-item";
 import "@polymer/iron-iconset-svg/iron-iconset-svg";
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-collapse/iron-collapse.js';
