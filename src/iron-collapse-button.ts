@@ -45,6 +45,7 @@ import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import "@polymer/iron-iconset-svg/iron-iconset-svg";
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-collapse/iron-collapse.js';
+import {Layouts} from '@collaborne/lit-flexbox-literals';
 
 /**
  * Iron Collapse Button
@@ -53,17 +54,17 @@ import '@polymer/iron-collapse/iron-collapse.js';
 @customElement('iron-collapse-button')
 export class IronCollapseButtonElement extends LitElement {
 
-	static get is() { return 'iron-collapse-button'; }
+  static get is() { return 'iron-collapse-button'; }
+  
+  static get styles() {
+    return [Layouts];
+  }
 	
 	render() {
 		return html`
     <style>
       :host {
         display: block;
-      }
-      #trigger {
-        @apply --layout-horizontal;
-        @apply --layout-center;
       }
     </style>
 
@@ -74,7 +75,7 @@ export class IronCollapseButtonElement extends LitElement {
 	</defs></svg>
 	</iron-iconset-svg>
 
-    <div id="trigger" @click=${this.toggle}>
+    <div id="trigger" class="layout horizontal center-center" @click=${this.toggle}>
       <slot name="collapse-trigger"></slot>
       <iron-icon icon="${this._toggle(this.opened, this.collapseIcon, this.expandIcon)}" ?hidden="${this.noIcons}"></iron-icon>
     </div>
