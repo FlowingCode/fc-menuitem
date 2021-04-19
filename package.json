@@ -1,6 +1,6 @@
 {
   "name": "@flowingcode/fc-menuitem",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "description": "Web Component that displays a hierarchical menu",
   "keywords": [
     "web-components",
@@ -48,7 +48,7 @@
     "@polymer/paper-item": "^3.0.1",
     "@polymer/iron-flex-layout": "^3.0.1",
     "@polymer/iron-collapse": "^3.0.1",
-    "@vaadin/vaadin-themable-mixin": "^1.6.2",
+    "@vaadin/themable-element": "^0.3.0",
     "@polymer/iron-iconset-svg": "^3.0.1",
     "@polymer/iron-icon": "^3.0.1",
     "@collaborne/lit-flexbox-literals": "0.2.2"
