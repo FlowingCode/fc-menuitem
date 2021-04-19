@@ -32,8 +32,8 @@ limitations under the License.
  
 import "@polymer/iron-icon/iron-icon";
 
-import { customElement, html, LitElement, property, PropertyValues } from 'lit-element';
-import { ThemableMixin } from '@vaadin/vaadin-themable-mixin/vaadin-themable-mixin.js';
+import { customElement, html, property, PropertyValues } from 'lit-element';
+import { ThemableElement } from '@vaadin/themable-element/themable-element.js'
 import "@polymer/paper-item/paper-icon-item";
 import "@polymer/iron-iconset-svg/iron-iconset-svg";
 import "./iron-collapse-button";
@@ -46,7 +46,7 @@ import { PaperIconItemElement } from "@polymer/paper-item/paper-icon-item";
  * @csspart button - The button
  */
 @customElement('fc-menuitem')
-export class FcMenuItemElement extends ThemableMixin(LitElement) {
+export class FcMenuItemElement extends ThemableElement {
 	static get is() { return 'fc-menuitem'; }
 
 	render() {
