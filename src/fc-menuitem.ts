@@ -74,6 +74,9 @@ export class FcMenuItemElement extends ThemableElement {
 				color: inherit;
 				text-decoration: none
 			}
+			::slotted(fc-menuitem) {
+				background-color: var(--lumo-primary-color-10pct);
+			}
 		</style>
 	         	
 	    <iron-iconset-svg name="fc-menuitem-icons" size="24">
