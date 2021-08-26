@@ -5,13 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>&lt;fc-menuitem> Demo</title>
+    <script type="module" src="../node_modules/@polymer/iron-icons/iron-icons.js"></script>
+    <script type="module" src="../node_modules/@polymer/iron-iconset-svg/iron-iconset-svg.js"></script>
+    <script type="module" src="../node_modules/@polymer/iron-icon/iron-icon.js"></script>
     <script type="module" src="../fc-menuitem.js"></script>
     <style>
 		body {--lumo-primary-color-10pct: hsla(214, 90%, 52%, 0.1);}
     </style>
   </head>
   <body>
-    <fc-menuitem label="Menu item 1" >
+    <fc-menuitem icon="apps" label="Menu item 1" >
       <fc-menuitem label="Menu item 1-2" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-2')"></fc-menuitem>
     </fc-menuitem>
     <fc-menuitem label="Menu item 2" onMenuItemClicked="alert('clicked Menu item 2')" href="/"></fc-menuitem>
