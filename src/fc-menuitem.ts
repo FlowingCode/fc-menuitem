@@ -143,19 +143,8 @@ export class FcMenuItemElement extends ThemableElement {
 		}
 	}
 
-	__closeDrawer() {
-		// let container = this.closest('[fc-menuitem-container]'); 
-		// if (container) container.close();
-	}
-
 	constructor() {
 		super();
-		// var listener = () => {
-		// 	let iron = this.shadowRoot?.querySelector("iron-collapse-button");
-		// 	if (iron) iron.$.trigger.children[0].assignedNodes()[0].focus();
-		// };
-		// this.addEventListener('focus', listener);
-		// this.addEventListener('click', listener);
 		this.addEventListener('click', (event) => {
 		let myEvent = new CustomEvent('menuitem-clicked-event', { 
 			detail: { message: 'Menu item clicked.' },
