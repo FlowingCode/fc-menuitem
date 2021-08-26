@@ -123,21 +123,17 @@ export class FcMenuItemElement extends ThemableElement {
 	disabled = false;
 
 	@property({ type: Boolean, reflect: true })
-	hasIcon = false;
-
-	@property({ type: Boolean, reflect: true })
 	isSubmenu = false;
 
 	@property({ type: String, reflect: true })
 	onMenuItemClicked = "";
-
 
 	__hasIconChanged(hasIcon: boolean) {
 		let item = this.shadowRoot?.querySelector("#item") as PaperIconItemElement;
 		let contentIcon = item.shadowRoot?.querySelector("#contentIcon") as HTMLElement;
 		contentIcon.style.display = hasIcon ? 'flex' : 'none';
 	}
-	__hasIcon() {
+	get hasIcon() {
 		return !!(this.src || this.icon);
 	}
 
