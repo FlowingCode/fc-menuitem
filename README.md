@@ -1,7 +1,16 @@
+[![Published on Vaadin Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/flowingcodefc-menuitem)
+[![npm version](https://badgen.net/npm/v/@flowingcode/fc-menuitem)](https://www.npmjs.com/package/@flowingcode/fc-menuitem)
 # fc-menuitem
 
-Web Component that displays a hirearchical menu
+Web Component that displays a hierarchical menu
 
+## Features
+* Expand animation
+* Optional icon
+* Unlimited nested menus
+* Automatic shade depending on the depth
+
+![GIF for fc-menuitem](./Demo.gif)
 ## Setup
 
 Install dependencies:
@@ -113,6 +122,9 @@ This starter project doesn't include any build-time optimizations like bundling 
 
 For information on building application projects that include LitElement components, see [Build for production](https://lit-element.polymer-project.org/guide/build) on the LitElement site.
 
-## More information
+## License & Author
 
-See [Get started](https://lit-element.polymer-project.org/guide/start) on the LitElement site for more information.
+Web Component distributed under Apache License 2.0. For license terms, see LICENSE.txt.
+
+fc-menuitem is written by [Flowing Code S.A.](https://www.flowingcode.com)
+
