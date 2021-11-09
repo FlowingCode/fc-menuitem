@@ -90,7 +90,7 @@ export class FcMenuItemElement extends ThemableElement {
         <iron-icon src="${this.src}" icon="${this.icon}" slot="item-icon"></iron-icon>
         ${this.href ?
 				html`
-          <a router-link href="${this.href}" id="label" onclick="getRootNode().host.__closeDrawer()">${this.label}</a>
+          <a router-link href="${this.href}" id="label">${this.label}</a>
         `:
 				html`
           <span id="label">${this.label}</span>
