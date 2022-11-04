@@ -85,7 +85,7 @@ export class FcMenuItemElement extends ThemableElement {
 			</defs></svg>
 		</iron-iconset-svg>
 	
-		<iron-collapse-button>
+		<iron-collapse-button id="iron-collapse-button">
 			<paper-icon-item id="item" slot="collapse-trigger" role="option" ?disabled="${this.disabled}">
         <iron-icon src="${this.src}" icon="${this.icon}" slot="item-icon"></iron-icon>
         ${this.href ?
@@ -145,6 +145,14 @@ export class FcMenuItemElement extends ThemableElement {
 
 	constructor() {
 		super();
+		this.addEventListener('menuitem-expanded-event', (event) => {
+			this.classList.add("expanded");
+			event.stopPropagation();
+		});
+		this.addEventListener('menuitem-collapsed-event', (event) => {
+			this.classList.remove("expanded");
+			event.stopPropagation();
+		});
 		this.addEventListener('click', (event) => {
 		let myEvent = new CustomEvent('menuitem-clicked-event', { 
 			detail: { message: 'Menu item clicked.' },
