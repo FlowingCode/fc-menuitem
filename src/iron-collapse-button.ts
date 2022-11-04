@@ -115,7 +115,19 @@ export class IronCollapseButtonElement extends LitElement {
         this.opened = false;
     }
     toggle() {
-        this.opened = !this.opened;
+        if (this.opened) {
+          this.opened = false;
+          let myEvent = new CustomEvent('menuitem-collapsed-event', { 
+            bubbles: true, 
+            composed: true });
+          this.dispatchEvent(myEvent);
+        } else {
+          this.opened = true;
+          let myEvent = new CustomEvent('menuitem-expanded-event', { 
+            bubbles: true, 
+            composed: true });
+          this.dispatchEvent(myEvent);
+        }
     }
     _toggle(cond: boolean, t: string, f: string) {
         return cond ? t : f;

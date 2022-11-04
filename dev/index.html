@@ -10,12 +10,24 @@
     <script type="module" src="../node_modules/@polymer/iron-icon/iron-icon.js"></script>
     <script type="module" src="../fc-menuitem.js"></script>
     <style>
-		body {--lumo-primary-color-10pct: hsla(214, 90%, 52%, 0.1);}
-    </style>
+		body {
+      --lumo-primary-color-10pct: hsla(214, 90%, 52%, 0.1);
+    }
+    fc-menuitem.expanded {
+      box-shadow: 0px 5px 9px -6px inset;
+    }
+</style>
   </head>
   <body>
     <fc-menuitem icon="apps" label="Menu item 1" >
+      <fc-menuitem label="Menu item 1-1" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-1')"></fc-menuitem>
       <fc-menuitem label="Menu item 1-2" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-2')"></fc-menuitem>
+      <fc-menuitem label="Menu item 1-3" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-3')"></fc-menuitem>
+      <fc-menuitem label="Menu item 1-4" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-4')"></fc-menuitem>
+      <fc-menuitem label="Menu item 1-5" slot="menu-item">
+        <fc-menuitem label="Menu item 1-5-1" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-5-1')"></fc-menuitem>
+        <fc-menuitem label="Menu item 1-5-2" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-5-2')"></fc-menuitem>
+      </fc-menuitem>  
     </fc-menuitem>
     <fc-menuitem label="Menu item 2" onMenuItemClicked="alert('clicked Menu item 2')" href="/"></fc-menuitem>
     <fc-menuitem label="Menu item 3"></fc-menuitem>
