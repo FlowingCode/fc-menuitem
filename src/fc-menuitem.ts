@@ -85,7 +85,7 @@ export class FcMenuItemElement extends ThemableElement {
 			</defs></svg>
 		</iron-iconset-svg>
 	
-		<iron-collapse-button id="iron-collapse-button">
+		<iron-collapse-button id="iron-collapse-button" ?opened="${this.opened}">
 			<paper-icon-item id="item" slot="collapse-trigger" role="option" ?disabled="${this.disabled}">
         <iron-icon src="${this.src}" icon="${this.icon}" slot="item-icon"></iron-icon>
         ${this.href ?
@@ -124,6 +124,9 @@ export class FcMenuItemElement extends ThemableElement {
 
 	@property({ type: Boolean, reflect: true })
 	isSubmenu = false;
+
+	@property({ type: Boolean, reflect: true  })
+	opened = false;
 
 	@property({ type: String, reflect: true })
 	onMenuItemClicked = "";
