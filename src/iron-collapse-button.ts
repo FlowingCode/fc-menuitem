@@ -40,12 +40,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { customElement, html, LitElement, property } from 'lit-element';
+import {html, LitElement} from 'lit';
+import {property} from 'lit/decorators/property.js';
+import {customElement} from 'lit/decorators/custom-element.js';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import "@polymer/iron-iconset-svg/iron-iconset-svg";
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-collapse/iron-collapse.js';
-import {Layouts} from '@collaborne/lit-flexbox-literals';
 
 /**
  * Iron Collapse Button
@@ -55,16 +56,18 @@ import {Layouts} from '@collaborne/lit-flexbox-literals';
 export class IronCollapseButtonElement extends LitElement {
 
   static get is() { return 'iron-collapse-button'; }
-  
-  static get styles() {
-    return [Layouts];
-  }
-	
-	render() {
+
+	override render() {
 		return html`
     <style>
       :host {
         display: block;
+      }
+      .triggerClass {
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        display: flex;
       }
     </style>
 
@@ -75,7 +78,7 @@ export class IronCollapseButtonElement extends LitElement {
 	</defs></svg>
 	</iron-iconset-svg>
 
-    <div id="trigger" class="layout horizontal center-center" @click=${this.toggle}>
+    <div id="trigger" class="triggerClass" @click=${this.toggle}>
       <slot name="collapse-trigger"></slot>
       <iron-icon icon="${this._toggle(this.opened, this.collapseIcon, this.expandIcon)}" ?hidden="${this.noIcons}"></iron-icon>
     </div>
