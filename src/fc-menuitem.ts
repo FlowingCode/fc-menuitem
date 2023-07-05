@@ -32,8 +32,10 @@ limitations under the License.
  
 import "@polymer/iron-icon/iron-icon";
 
-import { customElement, html, property, PropertyValues } from 'lit-element';
-import { ThemableElement } from '@vaadin/themable-element/themable-element.js'
+import {html, LitElement, PropertyValues} from 'lit';
+import {property} from 'lit/decorators/property.js';
+import {customElement} from 'lit/decorators/custom-element.js';
+import { ThemableMixin } from '@vaadin/vaadin-themable-mixin';
 import "@polymer/paper-item/paper-icon-item";
 import "@polymer/iron-iconset-svg/iron-iconset-svg";
 import "./iron-collapse-button";
@@ -46,10 +48,10 @@ import { PaperIconItemElement } from "@polymer/paper-item/paper-icon-item";
  * @csspart button - The button
  */
 @customElement('fc-menuitem')
-export class FcMenuItemElement extends ThemableElement {
+export class FcMenuItemElement extends ThemableMixin(LitElement) {
 	static get is() { return 'fc-menuitem'; }
 
-	render() {
+	override render() {
 		return html`
 		<style>
 			:host {
@@ -140,7 +142,7 @@ export class FcMenuItemElement extends ThemableElement {
 		return !!(this.src || this.icon);
 	}
 
-	updated(changedProps: PropertyValues) {
+	override updated(changedProps: PropertyValues) {
 		if (changedProps.has('hasIcon')) {
 			this.__hasIconChanged(changedProps.get('hasIcon') as boolean);
 		}
@@ -184,11 +186,11 @@ export class FcMenuItemElement extends ThemableElement {
 		});
 	}
 
-	connectedCallback() {
+	override connectedCallback() {
 		super.connectedCallback();
 	}
 
-	firstUpdated() {
+	override firstUpdated() {
 		var slot = this.shadowRoot?.querySelector("slot[name='menu-item']");
 		var handler = this.__bindSubmenu.bind(this);
 		slot?.addEventListener('slotchange', handler);
@@ -196,7 +198,7 @@ export class FcMenuItemElement extends ThemableElement {
 		this.__hasIconChanged(this.hasIcon);
 	}
 
-	disconnectedCallback() {
+	override disconnectedCallback() {
 		super.disconnectedCallback();
 	}
 
