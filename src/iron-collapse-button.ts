@@ -62,6 +62,7 @@ export class IronCollapseButtonElement extends LitElement {
     <style>
       :host {
         display: block;
+        --iron-collapse-transition-duration : 100ms;
       }
       .triggerClass {
         justify-content: center;
