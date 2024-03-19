@@ -69,6 +69,10 @@ export class IronCollapseButtonElement extends LitElement {
         flex-direction: row;
         display: flex;
       }
+      .ironIconClass {
+        position: absolute;
+        right: 10px;
+      }
     </style>
 
 	<iron-iconset-svg name="iron-collapse-button-icons" size="24">
@@ -80,7 +84,7 @@ export class IronCollapseButtonElement extends LitElement {
 
     <div id="trigger" class="triggerClass" @click=${this.toggle}>
       <slot name="collapse-trigger"></slot>
-      <iron-icon icon="${this._toggle(this.opened, this.collapseIcon, this.expandIcon)}" ?hidden="${this.noIcons}"></iron-icon>
+      <iron-icon class="ironIconClass" icon="${this._toggle(this.opened, this.collapseIcon, this.expandIcon)}" ?hidden="${this.noIcons}"></iron-icon>
     </div>
     <iron-collapse id="collapse" ?horizontal="${this.horizontal}" data-no-animation="${this.noAnimation}" ?opened="${this.opened}">
       <slot name="collapse-content"></slot>
