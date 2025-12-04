@@ -7,7 +7,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
  
-      http://www.apache.org/licenses/LICENSE-2.0
+	  http://www.apache.org/licenses/LICENSE-2.0
  
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,12 +29,13 @@ limitations under the License.
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
- 
-import "@polymer/iron-icon/iron-icon";
 
-import {html, LitElement, PropertyValues} from 'lit';
-import {property} from 'lit/decorators/property.js';
-import {customElement} from 'lit/decorators/custom-element.js';
+import "@polymer/iron-icon/iron-icon";
+import '@vaadin/vaadin-lumo-styles/color.js';
+
+import { html, LitElement, PropertyValues } from 'lit';
+import { property } from 'lit/decorators/property.js';
+import { customElement } from 'lit/decorators/custom-element.js';
 import { ThemableMixin } from '@vaadin/vaadin-themable-mixin';
 import "@polymer/paper-item/paper-icon-item";
 import "@polymer/iron-iconset-svg/iron-iconset-svg";
@@ -57,6 +58,8 @@ export class FcMenuItemElement extends ThemableMixin(LitElement) {
 			:host {
 				cursor: pointer;
 				display: block;
+				background-color: var(--lumo-base-color);
+				color: var(--lumo-body-text-color);
 				--paper-item-disabled-color: var(--lumo-disabled-text-color);
 			}
 			:host(.iron-selected) #item {
@@ -159,13 +162,13 @@ export class FcMenuItemElement extends ThemableMixin(LitElement) {
 			event.stopPropagation();
 		});
 		this.addEventListener('click', (event) => {
-		let myEvent = new CustomEvent('menuitem-clicked-event', { 
-			detail: { message: 'Menu item clicked.' },
-			bubbles: true, 
+			let myEvent = new CustomEvent('menuitem-clicked-event', {
+				detail: { message: 'Menu item clicked.' },
+				bubbles: true,
 			composed: true });
-		this.dispatchEvent(myEvent);
+			this.dispatchEvent(myEvent);
 		eval( this.onMenuItemClicked );
-		if (this.href && event.composedPath() && (event.composedPath()[0] as HTMLElement).id != "label") {
+			if (this.href && event.composedPath() && (event.composedPath()[0] as HTMLElement).id != "label") {
 				let anchor = this.shadowRoot?.querySelector("a#label") as HTMLElement;
 				anchor.click();
 			}
