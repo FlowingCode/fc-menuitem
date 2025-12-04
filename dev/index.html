@@ -1,41 +1,112 @@
 <!doctype html>
 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>&lt;fc-menuitem> Demo</title>
-    <script type="module" src="../node_modules/@polymer/iron-icons/iron-icons.js"></script>
-    <script type="module" src="../node_modules/@polymer/iron-iconset-svg/iron-iconset-svg.js"></script>
-    <script type="module" src="../node_modules/@polymer/iron-icon/iron-icon.js"></script>
-    <script type="module" src="../fc-menuitem.js"></script>
-    <style>
-		body {
-      --lumo-primary-color-10pct: hsla(214, 90%, 52%, 0.1);
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&lt;fc-menuitem> Demo</title>
+  <script type="module" src="../node_modules/@polymer/iron-icons/iron-icons.js"></script>
+  <script type="module" src="../node_modules/@polymer/iron-iconset-svg/iron-iconset-svg.js"></script>
+  <script type="module" src="../node_modules/@polymer/iron-icon/iron-icon.js"></script>
+  <script type="module">
+    // Import all Lumo styles to enable dark theme support
+    import '@vaadin/vaadin-lumo-styles/all-imports.js';
+  </script>
+  <script type="module" src="../fc-menuitem.js"></script>
+  <style>
+    body {
+      font-family: var(--lumo-font-family);
+      background-color: var(--lumo-base-color);
+      color: var(--lumo-body-text-color);
+      transition: background-color 0.3s, color 0.3s;
     }
+
+    /* Dark theme CSS variables for html element */
+    html[theme~="dark"] {
+      --lumo-base-color: hsl(214, 35%, 15%);
+      --lumo-body-text-color: hsla(214, 100%, 98%, 0.9);
+      --lumo-header-text-color: hsla(214, 100%, 98%, 0.9);
+      --lumo-secondary-text-color: hsla(214, 100%, 98%, 0.7);
+      --lumo-tertiary-text-color: hsla(214, 100%, 98%, 0.5);
+      --lumo-disabled-text-color: hsla(214, 61%, 25%, 0.5);
+      --lumo-primary-color-10pct: hsla(214, 90%, 63%, 0.1);
+      --lumo-contrast-10pct: hsla(214, 100%, 98%, 0.1);
+      --lumo-contrast-20pct: hsla(214, 100%, 98%, 0.16);
+      --lumo-contrast-30pct: hsla(214, 100%, 98%, 0.26);
+      --lumo-contrast-40pct: hsla(214, 100%, 98%, 0.38);
+      --lumo-contrast-50pct: hsla(214, 100%, 98%, 0.52);
+      --lumo-contrast-60pct: hsla(214, 100%, 98%, 0.6);
+      --lumo-contrast-70pct: hsla(214, 100%, 98%, 0.69);
+      --lumo-contrast-80pct: hsla(214, 100%, 98%, 0.83);
+      --lumo-contrast-90pct: hsla(214, 100%, 98%, 0.94);
+      --lumo-contrast: hsl(214, 100%, 98%);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: var(--lumo-contrast-10pct);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .theme-toggle label {
+      cursor: pointer;
+      user-select: none;
+    }
+
     fc-menuitem.expanded {
       box-shadow: 0px 5px 9px -6px inset;
     }
-</style>
-  </head>
-  <body>
-    <fc-menuitem icon="apps" label="Menu item 1">
+  </style>
+</head>
+
+<body>
+  <div class="theme-toggle">
+    <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+    <label for="darkModeToggle">Dark Mode</label>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      const checkbox = document.getElementById('darkModeToggle');
+      if (checkbox.checked) {
+        document.documentElement.setAttribute('theme', 'dark');
+      } else {
+        document.documentElement.removeAttribute('theme');
+      }
+    }
+
+    // Check if dark mode is already enabled on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const isDark = document.documentElement.hasAttribute('theme');
+      document.getElementById('darkModeToggle').checked = isDark;
+    });
+  </script>
+
+  <fc-menuitem icon="apps" label="Menu item 1">
       <fc-menuitem label="Menu item 1-1" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-1')"></fc-menuitem>
       <fc-menuitem label="Menu item 1-2" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-2')"></fc-menuitem>
       <fc-menuitem label="Menu item 1-3" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-3')"></fc-menuitem>
       <fc-menuitem label="Menu item 1-4" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-4')"></fc-menuitem>
-      <fc-menuitem label="Menu item 1-5" slot="menu-item" opened>
+    <fc-menuitem label="Menu item 1-5" slot="menu-item" opened>
         <fc-menuitem label="Menu item 1-5-1" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-5-1')"></fc-menuitem>
         <fc-menuitem label="Menu item 1-5-2" slot="menu-item" href="https://www.google.com" onMenuItemClicked="alert('clicked Menu item 1-5-2')"></fc-menuitem>
-      </fc-menuitem>  
     </fc-menuitem>
-    <fc-menuitem label="Menu item 2" onMenuItemClicked="alert('clicked Menu item 2')" href="/"></fc-menuitem>
-    <fc-menuitem label="Menu item 3"></fc-menuitem>
-    <fc-menuitem label="Menu item 4"></fc-menuitem>
-	<fc-menuitem label="Menu item 5">
-		<fc-menuitem label="Menu item 5.1" slot="menu-item">
+  </fc-menuitem>
+  <fc-menuitem label="Menu item 2" onMenuItemClicked="alert('clicked Menu item 2')" href="/"></fc-menuitem>
+  <fc-menuitem label="Menu item 3"></fc-menuitem>
+  <fc-menuitem label="Menu item 4"></fc-menuitem>
+  <fc-menuitem label="Menu item 5">
+    <fc-menuitem label="Menu item 5.1" slot="menu-item">
 			<fc-menuitem label="Menu item 5.1.1" slot="menu-item"/>
-		</fc-menuitem>
-	</fc-menuitem>
-  </body>
+    </fc-menuitem>
+  </fc-menuitem>
+</body>
 </html>

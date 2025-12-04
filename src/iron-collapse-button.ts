@@ -40,9 +40,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import {html, LitElement} from 'lit';
-import {property} from 'lit/decorators/property.js';
-import {customElement} from 'lit/decorators/custom-element.js';
+import { html, LitElement } from 'lit';
+import { property } from 'lit/decorators/property.js';
+import { customElement } from 'lit/decorators/custom-element.js';
+import '@vaadin/vaadin-lumo-styles/color.js';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import "@polymer/iron-iconset-svg/iron-iconset-svg";
 import '@polymer/iron-icon/iron-icon.js';
@@ -57,11 +58,13 @@ export class IronCollapseButtonElement extends LitElement {
 
   static get is() { return 'iron-collapse-button'; }
 
-	override render() {
-		return html`
+  override render() {
+    return html`
     <style>
       :host {
         display: block;
+        background-color: var(--lumo-base-color);
+        color: var(--lumo-body-text-color);
         --iron-collapse-transition-duration : 100ms;
       }
       .triggerClass {
@@ -92,53 +95,53 @@ export class IronCollapseButtonElement extends LitElement {
     </iron-collapse>
         `;}
 
-    @property({ type: Boolean })
-    horizontal = false;
+  @property({ type: Boolean })
+  horizontal = false;
 
-    @property({ type: Boolean })
-    noAnimation = false;
+  @property({ type: Boolean })
+  noAnimation = false;
 
-    @property({ type: Boolean })
-    opened = false;
+  @property({ type: Boolean })
+  opened = false;
 
-    @property({ type: String })
-    expandIcon = 'iron-collapse-button-icons:expand-more';
+  @property({ type: String })
+  expandIcon = 'iron-collapse-button-icons:expand-more';
 
-    @property({ type: String })
-    collapseIcon = 'iron-collapse-button-icons:expand-less';
+  @property({ type: String })
+  collapseIcon = 'iron-collapse-button-icons:expand-less';
 
-    @property({ type: Boolean })
-    noIcons = false;
+  @property({ type: Boolean })
+  noIcons = false;
 
-    show() {
-        this.open();
-    }
-    hide() {
-        this.close();
-    }
-    open() {
-        this.opened = true;
-    }
-    close() {
-        this.opened = false;
-    }
-    toggle() {
-        if (this.opened) {
-          this.opened = false;
-          let myEvent = new CustomEvent('menuitem-collapsed-event', { 
-            bubbles: true, 
+  show() {
+    this.open();
+  }
+  hide() {
+    this.close();
+  }
+  open() {
+    this.opened = true;
+  }
+  close() {
+    this.opened = false;
+  }
+  toggle() {
+    if (this.opened) {
+      this.opened = false;
+      let myEvent = new CustomEvent('menuitem-collapsed-event', {
+        bubbles: true,
             composed: true });
-          this.dispatchEvent(myEvent);
-        } else {
-          this.opened = true;
-          let myEvent = new CustomEvent('menuitem-expanded-event', { 
-            bubbles: true, 
+      this.dispatchEvent(myEvent);
+    } else {
+      this.opened = true;
+      let myEvent = new CustomEvent('menuitem-expanded-event', {
+        bubbles: true,
             composed: true });
-          this.dispatchEvent(myEvent);
-        }
+      this.dispatchEvent(myEvent);
     }
-    _toggle(cond: boolean, t: string, f: string) {
-        return cond ? t : f;
-    }
+  }
+  _toggle(cond: boolean, t: string, f: string) {
+    return cond ? t : f;
+  }
 
 }

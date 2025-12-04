@@ -52,6 +52,7 @@
     "@polymer/iron-flex-layout": "^3.0.1",
     "@polymer/iron-collapse": "^3.0.1",
     "@vaadin/vaadin-themable-mixin": "^24.1.2",
+    "@vaadin/vaadin-lumo-styles": "^24.9.6",
     "@polymer/iron-iconset-svg": "^3.0.1",
     "@polymer/iron-icon": "^3.0.1",
     "@collaborne/lit-flexbox-literals": "0.2.2"
