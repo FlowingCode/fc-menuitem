@@ -85,7 +85,7 @@
 
     // Check if dark mode is already enabled on page load
     globalThis.addEventListener('DOMContentLoaded', () => {
-      const isDark = document.documentElement.hasAttribute('theme')?.includes('dark');
+      const isDark = document.documentElement.getAttribute('theme')?.includes('dark');
       document.getElementById('darkModeToggle').checked = isDark;
     });
   </script>
