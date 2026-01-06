@@ -167,7 +167,6 @@ export class FcMenuItemElement extends ThemableMixin(LitElement) {
 				bubbles: true,
 			composed: true });
 			this.dispatchEvent(myEvent);
-		eval( this.onMenuItemClicked );
 			if (this.href && event.composedPath() && (event.composedPath()[0] as HTMLElement).id != "label") {
 				let anchor = this.shadowRoot?.querySelector("a#label") as HTMLElement;
 				anchor.click();
